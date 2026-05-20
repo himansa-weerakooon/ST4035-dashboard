@@ -9,16 +9,16 @@
   @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
 
   :root {
-    --bg:        #0b0e14;
-    --surface:   #131720;
-    --card:      #1a2030;
-    --border:    #252d40;
-    --accent:    #4fffb0;
-    --accent2:   #ff6b6b;
-    --accent3:   #6b9fff;
-    --accent4:   #ffd166;
-    --text:      #e8eaf0;
-    --muted:     #6b7799;
+    --bg:        #f4f6fa;
+    --surface:   #ffffff;
+    --card:      #f0f2f7;
+    --border:    #dde1ec;
+    --accent:    #0f7a55;
+    --accent2:   #d94f4f;
+    --accent3:   #2f6fd4;
+    --accent4:   #b07d10;
+    --text:      #1a1f2e;
+    --muted:     #7a829a;
     --mono:      'DM Mono', monospace;
     --head:      'Syne', sans-serif;
     --body:      'DM Sans', sans-serif;
@@ -37,7 +37,7 @@
 
   /* ── Header ─────────────────────────────────────────── */
   header {
-    background: linear-gradient(135deg, #0f1623 0%, #131d2e 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #eef1f8 100%);
     border-bottom: 1px solid var(--border);
     padding: 18px 32px;
     display: flex;
@@ -49,7 +49,7 @@
   }
   .logo-badge {
     background: var(--accent);
-    color: #0b0e14;
+    color: #ffffff;
     font-family: var(--mono);
     font-weight: 500;
     font-size: 11px;
@@ -122,7 +122,7 @@
     font-family: var(--mono);
     font-size: 13px;
     color: var(--accent);
-    background: rgba(79,255,176,.1);
+    background: rgba(15,122,85,.1);
     padding: 2px 8px;
     border-radius: 4px;
   }
@@ -142,11 +142,11 @@
     border-radius: 50%;
     background: var(--accent);
     border: 2px solid var(--bg);
-    box-shadow: 0 0 0 3px rgba(79,255,176,.2);
+    box-shadow: 0 0 0 3px rgba(15,122,85,.2);
     transition: box-shadow .15s;
   }
   input[type=range]::-webkit-slider-thumb:hover {
-    box-shadow: 0 0 0 5px rgba(79,255,176,.3);
+    box-shadow: 0 0 0 5px rgba(15,122,85,.3);
   }
 
   .toggle-group {
@@ -174,7 +174,7 @@
     color: var(--text);
   }
   .toggle-btn.active {
-    background: rgba(79,255,176,.1);
+    background: rgba(15,122,85,.1);
     border-color: var(--accent);
     color: var(--accent);
     font-weight: 500;
@@ -194,9 +194,9 @@
   .lf-logit     { --lf-c: var(--accent); }
   .lf-probit    { --lf-c: var(--accent3); }
   .lf-cloglog   { --lf-c: var(--accent4); }
-  .toggle-btn.active.lf-logit   { background: rgba(79,255,176,.1);  border-color: var(--accent);  color: var(--accent);  }
-  .toggle-btn.active.lf-probit  { background: rgba(107,159,255,.1); border-color: var(--accent3); color: var(--accent3); }
-  .toggle-btn.active.lf-cloglog { background: rgba(255,209,102,.1); border-color: var(--accent4); color: var(--accent4); }
+  .toggle-btn.active.lf-logit   { background: rgba(15,122,85,.1);  border-color: var(--accent);  color: var(--accent);  }
+  .toggle-btn.active.lf-probit  { background: rgba(47,111,212,.1); border-color: var(--accent3); color: var(--accent3); }
+  .toggle-btn.active.lf-cloglog { background: rgba(176,125,16,.1); border-color: var(--accent4); color: var(--accent4); }
 
   /* ── Metrics ──────────────────────────────────────────── */
   .metrics-row {
@@ -583,10 +583,10 @@ function generateData() {
 ========================================================= */
 let cDist, cLink, cROC, cCM;
 
-const COL_C1   = '#4fffb0';
-const COL_C0   = '#ff6b6b';
-const COL_BAL1 = 'rgba(79,255,176,0.45)';
-const COL_BAL0 = 'rgba(255,107,107,0.45)';
+const COL_C1   = '#0f7a55';
+const COL_C0   = '#d94f4f';
+const COL_BAL1 = 'rgba(15,122,85,0.35)';
+const COL_BAL0 = 'rgba(217,79,79,0.35)';
 
 function initCharts() {
   // Chart 1 — Distribution
@@ -626,19 +626,19 @@ function initCharts() {
         {
           label: 'Logit',
           data: etas.map(e => logit(e)),
-          borderColor: '#4fffb0', borderWidth: 2.5, pointRadius: 0,
+          borderColor: '#0f7a55', borderWidth: 2.5, pointRadius: 0,
           borderDash: [],
         },
         {
           label: 'Probit',
           data: etas.map(e => probit(e)),
-          borderColor: '#6b9fff', borderWidth: 2.5, pointRadius: 0,
+          borderColor: '#2f6fd4', borderWidth: 2.5, pointRadius: 0,
           borderDash: [6,3],
         },
         {
           label: 'C-log-log',
           data: etas.map(e => cloglog(e)),
-          borderColor: '#ffd166', borderWidth: 2.5, pointRadius: 0,
+          borderColor: '#b07d10', borderWidth: 2.5, pointRadius: 0,
           borderDash: [2,2],
         }
       ]
@@ -666,7 +666,7 @@ function initCharts() {
         {
           label: 'ROC Curve',
           data: [],
-          borderColor: '#4fffb0', borderWidth: 2.5,
+          borderColor: '#0f7a55', borderWidth: 2.5,
           pointRadius: 0, fill: false,
           parsing: { xAxisKey: 'x', yAxisKey: 'y' }
         },
@@ -701,7 +701,7 @@ function initCharts() {
       datasets: [{
         label: 'Proportion',
         data: [],
-        backgroundColor: ['rgba(79,255,176,.75)', 'rgba(255,107,107,.75)', 'rgba(255,107,107,.55)', 'rgba(107,159,255,.75)'],
+        backgroundColor: ['rgba(15,122,85,.75)', 'rgba(217,79,79,.75)', 'rgba(217,79,79,.45)', 'rgba(47,111,212,.75)'],
         borderRadius: 4, borderWidth: 0
       }]
     },
@@ -727,7 +727,7 @@ function baseOpts(extra={}) {
     animation: { duration: 280 },
     plugins: {
       legend: { display: false },
-      tooltip: { backgroundColor: '#1a2030', titleColor: '#e8eaf0', bodyColor: '#6b7799', borderColor: '#252d40', borderWidth: 1 },
+      tooltip: { backgroundColor: '#ffffff', titleColor: '#1a1f2e', bodyColor: '#7a829a', borderColor: '#dde1ec', borderWidth: 1 },
       ...extra.plugins
     },
     scales: extra.scales || {},
